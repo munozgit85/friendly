@@ -26,15 +26,15 @@ function generatePassword() {
   var special = confirm("Do you want special characters in your password?");
 
   // this is a minimum count for numbers, lowerCases, upperCases & specialCharacters
-  var minimumCount = 0;
+  var minimumCount = 8;
 
 
-  // Empty minimums for numbers, lowerCases, upperCases & specialCharacters
+  //  minimums for numbers, lowerCases, upperCases & specialCharacters
 
-  var minimumNumbers = "";
-  var minimumLowerCases = "";
-  var minimumUpperCases = "";
-  var minimumSpecialCharacters = "";
+  var minimumNumbers = "1";
+  var minimumLowerCases = "1";
+  var minimumUpperCases = "1";
+  var minimumSpecialCharacters = "1";
 
 
   // Generator functions**
@@ -57,7 +57,7 @@ function generatePassword() {
 
 };
 
-  // Checks to make sure user selected ok 
+  // check if user checked okay 
 
   if (numbers === true) {
     minimumNumbers = passwordObtain.obtainNumbers();
@@ -87,7 +87,7 @@ function generatePassword() {
   var randomPassword = "";
 
   // loop getting random characters
-  for (let i = 0; i < (parseInt(passwordLength) - minimumCount); i++) {
+  for (let i = 8; i < (parseInt(passwordLength) - minimumCount); i++) {
     var randomNumberPicked = Math.floor(Math.random() * 4);
 
     randomPassword += randomNumberPicked;
