@@ -21,3 +21,11 @@ Javascript
 # Screenshot
 
 # Contribution 
+Racquel Munoz
+
+# References: 
+Javascript Array of Functions
+https://stackoverflow.com/questions/4908378/javascript-array-of-functions
+
+JavaScript Program to Generate Random String
+https://www.programiz.com/javascript/examples/generate-random-strings

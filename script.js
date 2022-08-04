@@ -1,6 +1,7 @@
 
-// Special characters and generate password button to click 
+//Declare special cahracters not listed 
 var specialCharacters = "!@#$%^&*()";
+//create click button 
 var generateButton = document.getElementById('generateBtn')
 generateButton.addEventListener('click', writePassword)
 
@@ -13,9 +14,9 @@ function writePassword() {
 
 }
 
-// Select which criteria to include when prompted 
+// Select okay to each criteria to include when prompted 
 function generatePassword() {
-  var passwordLength = prompt("Please enter the number of characters you want for you new password.  It must be more than 8 but less than 128.");
+  var passwordLength = prompt("Please enter the number of characters you want for your new password.  It must be more than 8 but less than 128.");
 
   var numbers = confirm("Do you want numbers in your password?");
 
@@ -25,44 +26,43 @@ function generatePassword() {
 
   var special = confirm("Do you want special characters in your password?");
 
-  // this is a minimum count for numbers, lowerCases, upperCases & specialCharacters
-  var minimumCount = 8;
+  // Start at  zero 
+  var minimumCount = 0;
 
 
-  //  minimums for numbers, lowerCases, upperCases & specialCharacters
+  //  no minimum amount of eachnumbers, lowerCases, upperCases & specialCharacters 
 
-  var minimumNumbers = "1";
-  var minimumLowerCases = "1";
-  var minimumUpperCases = "1";
-  var minimumSpecialCharacters = "1";
+  var minimumNumbers = "";
+  var minimumLowerCases = "";
+  var minimumUpperCases = "";
+  var minimumSpecialCharacters = "";
 
 
-  // Generator functions**
+  // Generate password function 
   var passwordObtain = {
     obtainNumbers: function() {
-      return String.fromCharCode(Math.floor(Math.random() * 10 + 48));
+      return (Math.floor(Math.random()) * 10); // 10 different numbers 
     },
 
     obtainLowerCases: function() {
-      return String.fromCharCode(Math.floor(Math.random() * 26 + 97));
+      return (Math.floor(Math.random()) * 26 );//26 letters 
     },
 
     obtainUpperCases: function() {
-      return String.fromCharCode(Math.floor(Math.random() * 26 + 65));
+      return (Math.floor(Math.random()) * 26 );//26 letters 
     },
 
     obtainSpecialCharacters: function() {
-      return specialCharacters[Math.floor(Math.random() * specialCharacters.length)]
+      return specialCharacters[Math.floor(Math.random() * specialCharacters.length)]//refers to the special characters declared above 
     }
 
 };
 
-  // check if user checked okay 
+  // If user check okay to confirm ()
 
   if (numbers === true) {
     minimumNumbers = passwordObtain.obtainNumbers();
     minimumCount++;
-
   }
 
   if (lowerCases === true) {
@@ -83,24 +83,24 @@ function generatePassword() {
 
   }
 
-  // String variable for the loop 
+  //  variable for the loop and to use to return a random password 
   var randomPassword = "";
 
-  // loop getting random characters
-  for (let i = 8; i < (parseInt(passwordLength) - minimumCount); i++) {
-    var randomNumberPicked = Math.floor(Math.random() * 4);
-
+  // For loop to generating random characters ( 4 types of characters)
+  //parseInt uses the prompt above "passwordLength"( the amount of characters inputed) and turns this into a number 
+  for (let i = 0; i < (parseInt(passwordLength) - minimumCount); i++)
+   { var randomNumberPicked = Math.floor(Math.random() * 4);
     randomPassword += randomNumberPicked;
-
   }
 
-  // to make sure characters are added to the password
+  // return 4 different characters to obtain randomPassword 
   randomPassword += minimumNumbers;
   randomPassword += minimumLowerCases;
   randomPassword += minimumUpperCases;
   randomPassword += minimumSpecialCharacters;
 
+ return randomPassword;
 
-  return randomPassword;
+
 
 }
