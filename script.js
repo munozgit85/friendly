@@ -38,7 +38,7 @@ function generatePassword() {
   var minimumSpecialCharacters = "";
 
 
-  // Generate password function 
+  // Generate password function in array 
   var passwordObtain = {
     obtainNumbers: function() {
       return (Math.floor(Math.random()) * 10); // 10 different numbers 
@@ -87,8 +87,7 @@ function generatePassword() {
   var randomPassword = "";
 
   // For loop to generating random characters ( 4 types of characters)
-  //parseInt uses the prompt above "passwordLength"( the amount of characters inputed) and turns this into a number 
-  for (let i = 0; i < (parseInt(passwordLength) - minimumCount); i++)
+  for (let i = 0; i < (passwordLength - minimumCount); i++)
    { var randomNumberPicked = Math.floor(Math.random() * 4);
     randomPassword += randomNumberPicked;
   }
